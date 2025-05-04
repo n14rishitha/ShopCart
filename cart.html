@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Cart</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      background-color: #4F7C82;
+      
+    }
+    nav{
+        flex:1;
+        text-align: right;
+    }
+
+    nav ul {
+      display: inline-block;
+      list-style-type: none;
+      gap: 20px;
+    }
+    nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .logo h1 {
+      color: white;
+      font-size: 24px;
+    }
+
+    .button {
+      background: white;
+      color: #4F7C82;
+      padding: 8px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+
+    .cart-container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .cart-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    /* Cart item styles */
+    .cart-item {
+      display: flex;
+      gap: 30px;
+      padding: 25px 0;
+      border-bottom: 1px solid #eee;
+      align-items: flex-start;
+    }
+
+    .cart-image-container {
+      width: 150px;
+      height: 150px;
+      flex-shrink: 0;
+    }
+
+    .cart-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+
+    .cart-details {
+      flex: 1;
+    }
+
+    .cart-product-title {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .cart-product-brand {
+      font-weight: bold;
+      color: #4F7C82;
+      margin-bottom: 5px;
+    }
+
+    .cart-product-price {
+      font-size: 16px;
+      color: #e67e22;
+      margin-bottom: 10px;
+    }
+
+    .cart-product-rating {
+      color: #f39c12;
+      margin-bottom: 15px;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    .quantity-btn {
+      padding: 5px 12px;
+      background: #f0f0f0;
+      border: 1px solid #ddd;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .quantity {
+      min-width: 30px;
+      text-align: center;
+    }
+
+    .remove-btn {
+      background-color: #ff4444;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    #clear-cart, #buy-now {
+      padding: 12px 24px;
+      background-color: #4F7C82;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    #clear-cart:hover, #buy-now:hover {
+      background-color: #3a5f65;
+    }
+
+    .empty-cart {
+      text-align: center;
+      padding: 60px;
+      color: #666;
+      border: 2px dashed #ddd;
+      border-radius: 8px;
+      margin: 30px 0;
+    }
+
+    .empty-cart a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4F7C82;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo">
+      <h1>ShopCart</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#featured-products">Product</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="#">Account</a></li>
+      </ul>
+    </nav>
+    <a href="login.html" class="button">Login</a>
+  </div>
+
+  <div class="cart-container">
+    <h2>Your Cart</h2>
+    <div id="cart-items">
+      <!-- Cart items will be inserted here by JavaScript -->
+    </div>
+    <div class="cart-actions">
+      <button id="clear-cart">🗑️ Clear All</button>
+      <button id="buy-now">⚡ Buy Now</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Debug start
+      console.log("[Debug] Cart page loaded");
+      
+      // Get DOM elements
+      const cartContainer = document.getElementById('cart-items');
+      const clearBtn = document.getElementById('clear-cart');
+      const buyBtn = document.getElementById('buy-now');
+
+      // Load cart data safely
+      let cart = [];
+      try {
+        const cartData = localStorage.getItem('cart');
+        cart = cartData ? JSON.parse(cartData) : [];
+        console.log("[Debug] Cart data loaded:", cart);
+      } catch (e) {
+        console.error("[Error] Failed to load cart:", e);
+        localStorage.removeItem('cart');
+        cart = [];
+      }
+
+      // Render cart function
+      function renderCart() {
+        console.log("[Debug] Rendering cart with", cart.length, "items");
+        
+        if (!cart || cart.length === 0) {
+          cartContainer.innerHTML = `
+            <div class="empty-cart">
+              <p>Your cart is empty</p>
+              <a href="index.html">Continue Shopping</a>
+            </div>
+          `;
+          return;
+        }
+
+        cartContainer.innerHTML = cart.map((item, index) => `
+          <div class="cart-item">
+            <div class="cart-image-container">
+              <img src="${item.image || 'placeholder-image.jpg'}" alt="${item.name}" class="cart-image">
+            </div>
+            <div class="cart-details">
+              <div class="cart-product-brand">${item.brand || 'No Brand'}</div>
+              <h3 class="cart-product-title">${item.name || 'Unnamed Product'}</h3>
+              <div class="cart-product-price">Price: ${item.price || 'N/A'}</div>
+              ${item.rating ? `<div class="cart-product-rating">Rating: ${item.rating}</div>` : ''}
+              
+              <div class="quantity-controls">
+                <button class="quantity-btn" data-action="decrease" data-index="${index}">-</button>
+                <span class="quantity">${item.quantity || 1}</span>
+                <button class="quantity-btn" data-action="increase" data-index="${index}">+</button>
+              </div>
+              
+              <button class="remove-btn" data-index="${index}">Remove Item</button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // Event delegation for dynamic buttons
+      document.addEventListener('click', function(e) {
+        // Handle quantity changes
+        if (e.target.classList.contains('quantity-btn')) {
+          const index = e.target.dataset.index;
+          const action = e.target.dataset.action;
+          
+          if (action === 'increase') {
+            cart[index].quantity = (cart[index].quantity || 1) + 1;
+          } else if (action === 'decrease' && cart[index].quantity > 1) {
+            cart[index].quantity -= 1;
+          }
+          
+          localStorage.setItem('cart', JSON.stringify(cart));
+          renderCart();
+        }
+        
+        // Handle remove item
+        if (e.target.classList.contains('remove-btn')) {
+          const index = e.target.dataset.index;
+          if (confirm('Remove this item from cart?')) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+          }
+        }
+      });
+
+      // Clear cart
+      clearBtn.addEventListener('click', () => {
+        if (confirm('Clear all items from cart?')) {
+          localStorage.removeItem('cart');
+          cart = [];
+          renderCart();
+        }
+      });
+
+      // Buy now
+      buyBtn.addEventListener('click', () => {
+        if (cart.length === 0) {
+          alert('Your cart is empty!');
+          return;
+        }
+        alert('Thank you for your purchase!');
+        localStorage.removeItem('cart');
+        cart = [];
+        renderCart();
+      });
+
+      // Initial render
+      renderCart();
+    });
+  </script>
+</body>
+</html>

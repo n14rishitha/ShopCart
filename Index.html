@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopCart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="Index.css">
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    
+      #topBtn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: #4F7C82;
+        color: white;
+        cursor: pointer;
+        padding: 12px 16px;
+        border-radius: 100%;
+      }
+    
+      #topBtn:hover {
+        background-color: #3b5c61;
+      }
+    </style>
+</head>
+<body>
+  <!-----------navbar------------>
+    <div class="header">
+    <div class="container">
+    <div class="navbar">
+        <div class="logo">
+           <!-- <img src="btslogo.png" width="50px" height="40px"> -->
+           <h1>ShopCart</h1>
+        </div>
+       <nav>
+            <ul id="MenuItems">
+            <li><a href=""> Home </a></li>
+            <!-- <li><a href=""> About </a></li> -->
+            <li><a href="#featured-products"> Product </a></li>
+            <li><a href="cart.html"> Cart </a></li>
+            <li><a href=""> Account </a></li>
+            </ul>
+        </nav>
+       <!-- <img src="trolley.png" > -->
+       <a href="login.html" class="button">Login</a>
+       <!-- <img src="menu-icon.png" class="menu-icon"> -->
+    </div>
+    <!-------------mainpic and content------->
+    <div class="main">
+           <img src="Pics/btslogo.main.png" width="100%">
+           <div class="main-text">
+           <h1>Give yourself A new style!</h1>
+           <a href="#featured-products" class="btn">Explore Now </a>
+           </div>
+    </div>
+</div> 
+  </div>
+  <!----------featured categories----------->
+
+  <div class="categories">
+    <div class="small-container">
+    <div class="row">
+        <div class="col-3">
+        <img src="Pics/ts3-2.png" width="350px" height="400px" >
+        </div>
+        <div class="col-3">
+          <img src="Pics/dress2.png" width="350px" height="400px">
+        </div>
+        <div class="col-3">
+           <img src="Pics/skirt1.png" width="350px" height="400px"> 
+        </div>
+    </div> 
+</div>  
+  </div>
+   <!----------featured products----------->
+
+      <div class="small-container">
+
+        <!----------Featured Products---------->
+        <h2 class="title" id="featured-products">Featured Products</h2>
+        <div class="row">
+            <div class="col-4">
+              <a href="Item.html?id=1">
+              <img id="product-img" src="Pics/tshirt1-2.png" > 
+              <h4 id="product-brand">TWEE</h4> 
+              <p id="product-name">Solar Coloration Round Short Sleeve Tee Shirt</p>
+              <div class="rating">
+                <i class="fa fa-star" ></i>
+                <i class="fa fa-star" ></i>
+                <i class="fa fa-star" ></i>
+                <i class="fa fa-star" ></i>
+                <i class="fa fa-star" ></i>
+              </a> 
+              </div>
+              <p id="product-price">$28.99</p>
+            </div>
+            
+              <div class="col-4">
+                <a href="Item.html?id=2">
+                <img id="product-img" src="Pics/croptop1.png" > 
+                <h4 id="product-brand">DABAGIRL</h4> 
+                <p id="product-name"> Bless Twisted Tee Shirt</p>
+                <div id="product-rating" class="rating">
+                  <i class="fa fa-star"></i>  
+                  <i class="fa fa-star"></i>  
+                  <i class="fa fa-star"></i>  
+                  <i class="fa fa-star"></i>  
+                  <i class="fa fa-star-o" ></i>  
+                </div>
+                <p id="product-price" > $27.99</p>
+                </a>
+              </div>
+              <div class="col-4">
+                <a href="Item.html?id=3">
+                <img id="product-img" src="Pics/tshirt2-1.png" > 
+                <h4 id="product-brand">TWEE</h4> 
+                <p id="product-name">Hive Cooling U Neck Short Sleeve Tee Shirt</p>
+                <div id="product-rating" class="rating">
+                  <i class="fa fa-star"></i>  
+                  <i class="fa fa-star"></i>  
+                  <i class="fa fa-star"></i>  
+                  <i class="fa fa-star"></i>  
+                  <i class="fa fa-star-o" ></i>
+                   
+                </div>
+                <p id="product-price">$22.99</p>
+              </a>
+              </div>
+              <div class="col-4">
+                <a href="Item.html?id=4">
+                <img id="product-img" src="Pics/longdress1.png" > 
+                <h4 id="product-brand">Fiona Cell</h4> 
+                <p id="product-name">Heart Neck Coloration A Line Long Dress</p>
+                <div id="product-rating" class="rating">
+                  <i class="fa fa-star"></i>  
+                  <i class="fa fa-star"></i>  
+                  <i class="fa fa-star"></i>  
+                  <i class="fa fa-star"></i>  
+                  <i class="fa fa-star-o" ></i>
+                   
+                </div>
+                <p id="product-price">$79.20</p>
+                </a>
+              </div>
+        </div>
+
+ <!----------Latest Products---------->
+
+        <h2 class="title">Latest Products</h2>
+        <div class="row">
+            <div class="col-4">
+              <a href="Item.html?id=5">
+              <img id="product-img" src="Pics/shoes1.png" > 
+              <h4 id="product-brand">MLB Korea</h4> 
+              <p id="product-name">Unisex Big Ball Chunky A NY Yankees Ivory</p>
+              <div id="product-rating" class="rating">
+                <i class="fa fa-star"></i>  
+                <i class="fa fa-star"></i>  
+                <i class="fa fa-star"></i>  
+                <i class="fa fa-star"></i>  
+                <i class="fa fa-star-o" ></i>
+                 
+             </div>
+             <p id="product-price"> $132.99</p>
+             </a>
+        </div>
+            
+        <div class="col-4">
+          <a href="Item.html?id=6">
+         <img id="product-img" src="Pics/oversized1.png" > 
+          <h4 id="product-brand">STYLEMAN</h4> 
+          <p id="product-name">Daily 12 Color Oversized Cardigan </p>
+                 <div id="product-rating" class="rating">
+                    <i class="fa fa-star"></i>  
+                    <i class="fa fa-star"></i>  
+                    <i class="fa fa-star"></i>  
+                    <i class="fa fa-star"></i>  
+                    <i class="fa fa-star-o" ></i>
+                     
+                </div>
+                <p id="product-price">$39.99</p>
+                </a>
+                </div>
+                
+             <div class="col-4">
+              <a href="Item.html?id=7">
+                 <img  id="product-img" src="Pics/dior1-1.png" > 
+                 <h4 id="product-brand">Christian Dior</h4> 
+                 <p id="product-name">Miss Dior Blooming Bouquet Pouch Set 4pcs+Pouch</p>
+                    <div id="product-rating" class="rating">
+                        <i class="fa fa-star"></i>  
+                        <i class="fa fa-star"></i>  
+                        <i class="fa fa-star"></i>  
+                        <i class="fa fa-star"></i>  
+                        <i class="fa fa-star-o" ></i>
+                         
+                     </div>
+                      <p id="product-price">$87.30</p>
+                      </a>
+                    </div>
+                   
+            <div class="col-4">
+              <a href="Item.html?id=8">
+              <img id="product-img" src="Pics/pajama1.png" > 
+                 <h4 id="product-brand">FLYDAY </h4>
+                 <p id="product-name">Root Pajama Shirt</p> 
+                  <div id="product-rating" class="rating">
+                            <i class="fa fa-star"></i>  
+                            <i class="fa fa-star"></i>  
+                            <i class="fa fa-star"></i>  
+                            <i class="fa fa-star"></i>  
+                            <i class="fa fa-star-o" ></i>
+                             
+                 </div>
+                  <p id="product-price">$32.99</p>
+                  </a>
+                </div>
+      </div>
+      <div class="row">
+                <div class="col-4">
+                  <a href="Item.html?id=9">
+                  <img id="product-img" src="Pics/jeans1.png" > 
+                  <h4 id="product-brand">TWEE</h4> 
+                  <p id="product-name">Mallet Slit Boot Cut Denim Pants</p>
+                  <div id="product-rating" class="rating">
+                    <i class="fa fa-star"></i>  
+                    <i class="fa fa-star"></i>  
+                    <i class="fa fa-star"></i>  
+                    <i class="fa fa-star"></i>  
+                    <i class="fa fa-star-o" ></i>
+                    
+                </div>
+                <p id="product-price">$51.30</p>
+                </a>
+            </div>
+        
+                <div class="col-4">
+                  <a href="Item.html?id=10">
+                <img id="product-img" src="Pics/necklec1.png" > 
+                  <h4 id="product-brand">Jury</h4> 
+                  <p id="product-name">Space Star Moon Layered Necklace</p>
+                        <div id="product-rating" class="rating">
+                            <i class="fa fa-star"></i>  
+                            <i class="fa fa-star"></i>  
+                            <i class="fa fa-star"></i>  
+                            <i class="fa fa-star"></i>  
+                            <i class="fa fa-star-o" ></i>
+                            
+                        </div>
+                        <p id="product-price">$12.99</p>
+                        </a>
+               </div>
+            
+                  <div class="col-4">
+                    <a href="Item.html?id=11">
+                      <img id="product-img" src="Pics/hanbok1-1.png" > 
+                      <h4 id="product-brand">LEESLE</h4> 
+                      <p id="product-name">Unisex Hanbok Chosun Pants Black<br>Designer Collection</p>
+                          <div id="product-rating" class="rating">
+                              <i class="fa fa-star"></i>  
+                              <i class="fa fa-star"></i>  
+                              <i class="fa fa-star"></i>  
+                              <i class="fa fa-star"></i>  
+                              <i class="fa fa-star-o" ></i>
+                              
+                          </div>
+                            <p id="product-price">$184.99</p>
+                    </a>
+                </div>
+               
+                <div class="col-4">
+                  <a href="Item.html?id=12">
+                  <img id="product-img" src="Pics/nail1.png" > 
+                    <h4 id="product-brand">Jury</h4> 
+                    <p id="product-name">Bloom Flower Zircon Jewelry Parts (1pcs)</p>
+                      <div id="product-rating" class="rating">
+                                <i class="fa fa-star"></i>  
+                                <i class="fa fa-star"></i>  
+                                <i class="fa fa-star"></i>  
+                                <i class="fa fa-star"></i>  
+                                <i class="fa fa-star-half-o"></i>
+                                
+                    </div>
+                      <p id="product-price"> $8.99</p>
+                </a>
+            </div>
+       </div>
+       </div>
+       <!----------offer---------->     
+       <div class="offer">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-2">
+                <img src="Pics/yslmakeup offer.jpg" class="offer-img" width="100%">    
+                </div>
+                <div class="col-2">
+                 <p>Exclusively Available on store</p>
+                 <h1>DISCOVER OUR MAKEUP COLLECTION</h1>
+                 <a href="" class="btn">Buy Now &#8594;</a>  
+                </div>
+            </div>
+        </div>
+       </div>
+   <!----------------testimonial---------->
+   <div class="testimonial">
+    <div class="small-container">
+      <div class="row">
+        <div class="col-3">
+          <i class="fa fa-quote-left"></i> 
+          <p> YSL Beauty's Explore range of luxury makeup for complexion, lips and eyes.
+             Featuring foundations, concealers, mascaras, makeup brushes and nail varnishes.</p>
+          <div class="rating">
+            <i class="fa fa-star"></i>  
+            <i class="fa fa-star"></i>  
+            <i class="fa fa-star"></i>  
+            <i class="fa fa-star"></i>  
+            <i class="fa fa-star-o"></i>
+          </div>
+          <img src="Pics/roseysl.png">
+          <h3>Rose</h3>
+        </div>
+        <div class="col-3">
+          <i class="fa fa-quote-left"></i> 
+          <p>Dior has named BTS star Jimin as a global brand ambassador, a move that further signals South Korea’s growing importance  
+            to the worlds biggest luxury fashion houses</p>
+          <div class="rating">
+            <i class="fa fa-star"></i>  
+            <i class="fa fa-star"></i>  
+            <i class="fa fa-star"></i>  
+            <i class="fa fa-star"></i>  
+            <i class="fa fa-star-o"></i>
+          </div>
+          <img src="Pics/jimin.png">
+          <h3>Jimin</h3>
+        </div>
+        <div class="col-3">
+          <i class="fa fa-quote-left"></i> 
+          <p> The one and only "Miss Dior" representing South Korea, BLACKPINK's Jisoo charmed fans
+             once again with her classy 'Marie Claire' pictorial </p>
+          <div class="rating">
+            <i class="fa fa-star"></i>  
+            <i class="fa fa-star"></i>  
+            <i class="fa fa-star"></i>  
+            <i class="fa fa-star"></i>  
+            <i class="fa fa-star-o"></i>
+          </div>
+          <img src="Pics/jisoo.png">
+          <h3>Jisoo</h3>
+        </div>
+      </div>
+    </div>
+   </div>
+   <!----------------brands---------->
+<div class="brands">
+  <div class="small-container">
+    <div class="row">
+      <div class="col-5">
+        <img src="Pics/Dior_ButterFly.png" >   
+      </div>
+      <div class="col-5">
+        <img src="Pics/celine.png" >
+      </div>
+      <div class="col-5">
+       <img src="Pics/YSL logo.png" >   
+      </div>
+      <div class="col-5">
+       <img src="Pics/louis_vuitton logo.png" >
+      </div>
+      <div class="col-5">
+       <img src="Pics/chanel logo.png" >
+    </div>
+    </div>
+  </div>
+</div>
+<!--------------footer------------->
+<div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="footer-col-1">
+        <h3>Download our app</h3>
+        <p>Download App for Android and ios mobile phone</p>
+        <div class="app-logo">
+            <img src="Pics/google-play-app store.png">
+        </div>
+      </div>
+      <div class="footer-col-2">
+        <img src="Pics/k-logo.png" >
+        <p>Our Purpose Is To Sustainably Make the Pleasure And <br>
+          Benefits of our products Accessable to many people </p>
+      </div>
+      <div class="footer-col-3">
+        <h3>Useful links</h3>
+        <ul>
+          <li>Coupones</li>
+          <li>Blog post</li>
+          <li>Return policy</li>
+          <li>join Affiliate</li>
+        </ul>
+      </div>
+      <div class="footer-col-4">
+        <h3>Follow us</h3>
+        <ul>
+          <li>Facebook</li>
+          <li>Twitter</li>
+          <li>Instagram</li>
+          <li>YouTube</li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <p class="Copyright">Copyright 2023-Easy korea shopping</p>
+  </div>
+</div>
+   <!-- Back to Top Button -->
+<button onclick="topFunction()" id="topBtn" title="Go to top"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
+
+<script>
+  // Show button after scroll
+  window.onscroll = function () {
+    scrollFunction();
+  };
+
+  function scrollFunction() {
+    const topBtn = document.getElementById("topBtn");
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      topBtn.style.display = "block";
+    } else {
+      topBtn.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0; // Safari
+    document.documentElement.scrollTop = 0; // Chrome, Firefox, IE
+  }
+</script>
+
+
+
+  </body>
+</html>
