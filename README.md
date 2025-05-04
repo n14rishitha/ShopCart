@@ -30,7 +30,7 @@ shopcart/ <br>
 ├── Pics/ - Image assets <br>
 └── README.md - Project documentation <br>
 
-<h2>Live Project -- </h2>
+<h2>Live Project - https://n14rishitha.github.io/ShopCart/ </h2>
 
 ## Getting Started 💥
 
