@@ -30,6 +30,8 @@ shopcart/ <br>
 ├── Pics/ - Image assets <br>
 └── README.md - Project documentation <br>
 
+<h2>Live Project -- </h2>
+
 ## Getting Started 💥
 
 ### Prerequisites
